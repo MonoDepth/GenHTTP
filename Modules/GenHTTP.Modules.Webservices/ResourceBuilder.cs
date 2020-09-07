@@ -1,6 +1,9 @@
 ﻿using GenHTTP.Api.Content;
 using GenHTTP.Api.Infrastructure;
 
+using GenHTTP.Modules.Core;
+using GenHTTP.Modules.Core.Conversion;
+
 namespace GenHTTP.Modules.Webservices
 {
 

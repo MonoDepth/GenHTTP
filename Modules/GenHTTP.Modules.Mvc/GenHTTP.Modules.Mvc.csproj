@@ -18,18 +18,13 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://genhttp.org/</PackageProjectUrl>
 
-    <Description>Core modules of the GenHTTP webserver. Provides basic features such as navigation, layouting, static content or downloads.</Description>
+    <Description>Allows to use the MVC pattern to develop web applications.</Description>
 
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Websites\Error.html" />
-    <None Remove="Websites\Template.html" />
-  </ItemGroup>
 
   <ItemGroup>
 
@@ -39,18 +34,17 @@
     </None>
 
   </ItemGroup>
-  
+
   <ItemGroup>
     
-    <ProjectReference Include="..\..\API\GenHTTP.API\GenHTTP.Api.csproj" />
+    <ProjectReference Include="..\..\API\GenHTTP.API\GenHTTP.Api.csproj" />    
+    <ProjectReference Include="..\GenHTTP.Modules.Core\GenHTTP.Modules.Core.csproj" />
 
-    <PackageReference Include="System.Text.Json" Version="4.7.2" />
-    
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-
+    
   </ItemGroup>
 
 </Project>

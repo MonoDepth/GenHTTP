@@ -8,6 +8,7 @@ using Xunit;
 
 using GenHTTP.Api.Content;
 using GenHTTP.Api.Protocol;
+
 using GenHTTP.Modules.Core;
 using GenHTTP.Modules.Webservices;
 
@@ -39,19 +40,19 @@ namespace GenHTTP.Testing.Acceptance.Modules.Webservices
         public class TestResource
         {
 
-            [Method("nothing")]
+            [ResourceMethod("nothing")]
             public void DoNothing() { }
 
-            [Method("primitive")]
+            [ResourceMethod("primitive")]
             public int Primitive(int input) => input;
 
-            [Method(RequestMethod.POST, "entity")]
+            [ResourceMethod(RequestMethod.POST, "entity")]
             public TestEntity Entity(TestEntity entity) => entity;
 
-            [Method(RequestMethod.PUT, "stream")]
+            [ResourceMethod(RequestMethod.PUT, "stream")]
             public Stream Stream(Stream input) => new MemoryStream(Encoding.UTF8.GetBytes(input.Length.ToString()));
 
-            [Method("requestResponse")]
+            [ResourceMethod("requestResponse")]
             public IResponseBuilder RequestResponse(IRequest request)
             {
                 return request.Respond()
@@ -59,28 +60,28 @@ namespace GenHTTP.Testing.Acceptance.Modules.Webservices
                               .Type(ContentType.TextPlain);
             }
 
-            [Method("exception")]
+            [ResourceMethod("exception")]
             public void Exception() => throw new ProviderException(ResponseStatus.AlreadyReported, "Already reported!");
 
-            [Method("duplicate")]
+            [ResourceMethod("duplicate")]
             public void Duplicate1() { }
 
-            [Method("duplicate")]
+            [ResourceMethod("duplicate")]
             public void Duplicate2() { }
 
-            [Method("param/:param")]
+            [ResourceMethod("param/:param")]
             public int PathParam(int param) => param;
 
-            [Method("regex/(?<param>[0-9]+)")]
+            [ResourceMethod("regex/(?<param>[0-9]+)")]
             public int RegexParam(int param) => param;
 
-            [Method]
+            [ResourceMethod]
             public void Empty() { }
 
-            [Method("enum")]
+            [ResourceMethod("enum")]
             public TestEnum Enum(TestEnum input) => input;
 
-            [Method("request")]
+            [ResourceMethod("request")]
             public string? Request(IHandler handler, IRequest request) => "yes";
 
         }

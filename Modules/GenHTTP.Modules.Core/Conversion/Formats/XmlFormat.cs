@@ -4,9 +4,8 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 using GenHTTP.Api.Protocol;
-using GenHTTP.Modules.Core;
 
-namespace GenHTTP.Modules.Webservices.Formats
+namespace GenHTTP.Modules.Core.Conversion.Formats
 {
 
     public class XmlFormat : ISerializationFormat

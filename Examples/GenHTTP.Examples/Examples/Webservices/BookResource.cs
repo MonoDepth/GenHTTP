@@ -33,19 +33,19 @@ namespace GenHTTP.Examples.Examples.Webservices
 
         #region Functionality
 
-        [Method]
+        [ResourceMethod]
         public List<Book> GetList(int page = 0, int pageSize = 20)
         {
             return Books.Values.ToList();
         }
 
-        [Method(":id")]
+        [ResourceMethod(":id")]
         public Book? GetBook(int id)
         {
             return FindBook(id);
         }
 
-        [Method(RequestMethod.PUT)]
+        [ResourceMethod(RequestMethod.PUT)]
         public Book AddBook(Book book)
         {
             var copy = new Book(Books.Keys.Max() + 1, book.Title);
@@ -54,14 +54,14 @@ namespace GenHTTP.Examples.Examples.Webservices
             return copy;
         }
 
-        [Method(RequestMethod.POST)]
+        [ResourceMethod(RequestMethod.POST)]
         public Book UpdateBook(Book book)
         {
             Books[FindBook(book.ID).ID] = book;
             return book;
         }
 
-        [Method(RequestMethod.DELETE, ":id")]
+        [ResourceMethod(RequestMethod.DELETE, ":id")]
         public Book DeleteBook(int id)
         {
             var existing = FindBook(id);
