@@ -74,7 +74,7 @@ namespace GenHTTP.Core.Protocol
             }
             catch (Exception e)
             {
-                Server.Companion?.OnServerError(ServerErrorScope.ClientConnection, e);
+                Server.Companion?.OnServerError(ServerErrorScope.ClientConnection, e, request);
                 return false;
             }
         }
