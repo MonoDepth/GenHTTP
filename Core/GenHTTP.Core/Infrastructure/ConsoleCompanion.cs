@@ -18,7 +18,7 @@ namespace GenHTTP.Core.Infrastructure
             Console.WriteLine($"REQ - {request.Client.IPAddress} - {request.Method.RawMethod} {request.Target.Path} - {response.Status.RawStatus} - {response.ContentLength ?? 0}");
         }
 
-        public void OnServerError(ServerErrorScope scope, Exception error)
+        public void OnServerError(ServerErrorScope scope, Exception error, IRequest? request)
         {
             Console.WriteLine($"ERR - {scope} - {error}");
         }

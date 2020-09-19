@@ -83,7 +83,7 @@ namespace GenHTTP.Api.Infrastructure
         /// </summary>
         /// <param name="scope">The scope of the error</param>
         /// <param name="error">The actual exception which occurred</param>
-        void OnServerError(ServerErrorScope scope, Exception error);
+        void OnServerError(ServerErrorScope scope, Exception error, IRequest? request = null);
 
     }
 
